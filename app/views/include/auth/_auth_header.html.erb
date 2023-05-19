@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+    <a href="#" class="btn btn-dark me-2">
+        Ласкаво просимо, <%= current_user.email %>
+    </a>
+    <%= link_to "Вихід", destroy_user_session_path, class: "btn btn-outline-dark me-2" %>
+    <%= link_to "Редагування", edit_user_registration_path, class: "btn btn-outline-dark" %>
+<% else %>
+    <%= link_to "Вхід", new_user_session_path, class: "btn btn-outline-dark me-2" %>
+    <%= link_to "Реєстрація", new_user_registration_path, class: "btn btn-dark" %>
+<% end %>

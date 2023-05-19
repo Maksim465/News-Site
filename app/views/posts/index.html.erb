@@ -1,0 +1,8 @@
+<h1>Всі наші пости</h1>
+<% @post.each do |post| %>
+    <div class="alert alert-light">
+        <h3 class="text-dark"><%= post.title %></h3>
+            <p><%= truncate(post.body, length: 160, omission: '...') %></p>
+        <%= link_to "Читати далі...", post_path(post), :class => 'btn btn-outline-primary' %>
+    </div>
+<% end %>

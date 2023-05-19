@@ -1,0 +1,31 @@
+<h2>Додавання нового посту</h2>
+<%= form_for :post, url: posts_path do |f| %>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+    <% if flash[:error1] %>
+        <div class="alert alert-danger">
+            <%= flash[:error1] %>
+        </div>
+    <% end %>
+    <% if flash[:error2] %>
+        <div class="alert alert-danger">
+            <%= flash[:error2] %>
+        </div>
+    <% end %>
+    <p>
+        Назва<br>
+        <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        Текст статті<br>
+        <%= f.text_area(:body, {:class => 'form-control'}) %>
+    </p>
+
+    <p>
+        <%= f.submit 'Зберегти пост', ({:class => 'btn btn-success'}) %>
+    </p>
+<% end %>
